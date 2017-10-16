@@ -4,14 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start" : "webpack-dev-server --open"
+    "start": "webpack-dev-server --open"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pguzman26/github-battle.git"
   },
   "babel": {
-    "presets": ["env", "react"]
+    "presets": [
+      "env",
+      "react"
+    ]
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +23,7 @@
   },
   "homepage": "https://github.com/pguzman26/github-battle#readme",
   "dependencies": {
+    "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
   },
