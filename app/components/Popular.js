@@ -8,12 +8,7 @@ function SelectLanguage (props) {
     <ul className='languages'>
       {languages.map(function (lang) {
         return (
-          <li
-            style={lang === props.selectedLanguage ? {color: '#d0021b'} : null}
-            onClick={props.onSelect.bind(null, lang)}
-            key={lang}>
-              {lang}
-          </li>
+          <li style={lang === props.selectedLanguage ? {color: '#d0021b'} : null} onClick={props.onSelect.bind(null, lang)} key={lang}>{lang}</li>
         )
       })}
     </ul>
@@ -29,11 +24,7 @@ function RepoGrid (props) {
             <div className='popular-rank'>#{index + 1}</div>
             <ul className='space-list-items'>
               <li>
-                <img
-                  className='avatar'
-                  src={repo.owner.avatar_url}
-                  alt={'Avatar for ' + repo.owner.login}
-                />
+                <img className='avatar' src={repo.owner.avatar_url} alt={'Avatar for ' + repo.owner.login}/>
               </li>
               <li><a href={repo.html_url}>{repo.name}</a></li>
               <li>@{repo.owner.login}</li>
@@ -76,8 +67,7 @@ class Popular extends React.Component {
       }
     });
 
-    api.fetchPopularRepos(lang)
-      .then(function (repos) {
+    api.fetchPopularRepos(lang).then(function (repos) {
         this.setState(function () {
           return {
             repos: repos
@@ -88,12 +78,8 @@ class Popular extends React.Component {
   render() {
     return (
       <div>
-        <SelectLanguage
-          selectedLanguage={this.state.selectedLanguage}
-          onSelect={this.updateLanguage} />
-        {!this.state.repos
-          ? <p>LOADING!</p>
-          : <RepoGrid repos={this.state.repos} />}
+        <SelectLanguage selectedLanguage={this.state.selectedLanguage} onSelect={this.updateLanguage} />
+        {!this.state.repos? <p>LOADING!</p>:<RepoGrid repos={this.state.repos} />}
       </div>
     )
   }
